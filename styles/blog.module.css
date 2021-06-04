@@ -1,0 +1,27 @@
+.author {
+    font-size: 1.25rem;
+    font-weight: bold;
+    
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    
+    margin-left: 1em;
+    margin-right: 1em;
+  
+    background-color: antiquewhite;
+    border-radius: 0.75em;
+  }
+
+  .authorNew {
+    font-size: 1.25rem;
+    font-weight: bold;
+    
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    
+    margin-left: 2em;
+    margin-right: 2em;
+  
+    background-color: cyan;
+    border-radius: 0.75em;
+  }
