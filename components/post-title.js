@@ -3,13 +3,14 @@ import styles from '../styles/blog.module.css'
 export default function PostTitle({ post }) {
     return (
         <>
-          <div >
+          <div className={styles.postInfo}>
 
-            <h1 >
+            <h1>
               { post.title }
             </h1>
-            
-            by <div className={styles.author}>  { post.author } </div>
+
+            Author: <div className={styles.author}>  { post.author } </div>
+
           </div>
 
       </>

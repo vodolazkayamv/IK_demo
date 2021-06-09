@@ -1,3 +1,23 @@
+.article {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.article  h1 {
+    font-size: 4rem;
+}
+
+.postInfo {
+    align-items: center;
+    
+    min-height: 250px;
+    padding-bottom: 5%;
+    
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+  }
+
 .author {
     font-size: 1.25rem;
     font-weight: bold;
@@ -12,16 +32,11 @@
     border-radius: 0.75em;
   }
 
-  .authorNew {
+ .postContent {
     font-size: 1.25rem;
-    font-weight: bold;
-    
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    
-    margin-left: 2em;
-    margin-right: 2em;
-  
-    background-color: cyan;
-    border-radius: 0.75em;
-  }
+    text-align:justify;
+
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0px 85px 120px;
+ }
