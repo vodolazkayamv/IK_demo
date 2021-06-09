@@ -1,0 +1,34 @@
+{
+    "posts" : [
+        {
+            "title" : "About me",
+            "slug": "aboutme",
+            "author": "Masha",
+            "content": "Это страничка об этом сайте. \n Этот сайт сделала Маша Водолазкая в рамках вебинара по React.js на Инженерных каникулах \n Copyright Notice MPEI AMAI 2021"
+        },
+        {
+            "title" : "Weather Today",
+            "slug": "weather",
+            "author": "GisMeteo",
+            "content": "Ср, 9 июня, 13:24 +19,4"
+        },
+        {
+            "title" : "Мои любимые фильмы",
+            "slug": "movies",
+            "author": "Маша",
+            "content": "<ul> <li>Мстители</li> <li>Пепел и алмаз</li> </ul>"
+        }, 
+        {
+            "title" : "Мои любимые фильмы",
+            "slug": "movies2",
+            "author": "Маша",
+            "content": "<ul> <li>Мстители</li> <li>Пепел и алмаз</li>  <li>Семь самураев</li></ul>"
+        }, 
+        {
+            "title" : "Weather Tomorrow",
+            "slug": "weather2",
+            "author": "GisMeteo",
+            "content": "Ср, 10 июня, 13:24 +23,3"
+        }
+    ]
+}
