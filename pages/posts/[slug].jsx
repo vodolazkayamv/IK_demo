@@ -131,7 +131,7 @@ const Post = ( post ) => {
 
       const getObservations = async (event) => {
 
-        const response = await axios.get('https://lapki.appmat.org/api/barriers/2/observations');
+        const response = await axios.get('https://lapki.appmat.org/api/barriers/2/observations?limit=100');
         console.log(response)
         function filterByID(item) {
             if (item.barrierId == slug) {
