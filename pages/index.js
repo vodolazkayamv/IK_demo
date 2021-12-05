@@ -25,11 +25,14 @@ export default function Home() {
       name: post.title,
       type: 'bar'
     }
+    var localsum = 0
     days.forEach((day) => {
       var date = new Date(day.date)
       trace.x.push(date)
       trace.y.push(day.fishes)
       sum += day.fishes
+      localsum += day.fishes
+      trace.localsum = localsum
     })
     traces.push(trace)
   })
@@ -65,29 +68,31 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Количество рыбы, прошедшей через рыбоучетное заграждение
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-         
-        </p>
 
         {
           allPosts.map(function(post) {
+            var number = post.slug
+            console.log(traces[number])
+            var trace = traces[number]
+            if (trace) {
+            var localsum = trace.localsum
+            console.log(localsum)
+            }
             return (
-              <a href={"/posts/" + post.slug} className={styles.card}>
+                            <a href={"/posts/" + post.slug} className={styles.card}>
                 <h2>{post.title}</h2>
-                <p>{post.slug}</p>
               </a>
             )
           })
         }
 
+<div>
       <PlotComponent data={data}  layout={layout} />
       <PlotComponent data={dataIndicator} />
-
+</div>
       </main>
 
       <footer className={styles.footer}>

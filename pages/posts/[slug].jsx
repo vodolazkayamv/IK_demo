@@ -64,13 +64,13 @@ const Post = ( post ) => {
        
         {
           type: "indicator",
-          mode: "number+delta",
+          mode: "number",
           value: sum,
           title: {
             text:
               "Всего рыб<br><span style='font-size:0.8em;color:gray'>за период</span><br><span style='font-size:0.8em;color:gray'>прошли через это окно</span>"
           },
-          delta: { reference: 400, relative: true },
+          
           domain: { x: [0.6, 1], y: [0, 1] }
         }
       ];
