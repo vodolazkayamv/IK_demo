@@ -2,10 +2,59 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import content from '../data/posts.json'
+import dynamic from 'next/dynamic'
+
+const PlotComponent = dynamic(() => import('react-plotly.js'), {
+    ssr: false
+})
 
 export default function Home() {
 
   const allPosts = content.posts
+
+  var xData = []
+  var yData = []
+  var sum = 0
+  var traces = []
+
+  allPosts.forEach((post) => {
+    var days = post.days
+    var trace = {
+      x: [],
+      y: [],
+      name: post.title,
+      type: 'bar'
+    }
+    days.forEach((day) => {
+      var date = new Date(day.date)
+      trace.x.push(date)
+      trace.y.push(day.fishes)
+      sum += day.fishes
+    })
+    traces.push(trace)
+  })
+  var data = traces
+  var layout = {
+    xaxis: {title: 'Дата'},
+    yaxis: {title: 'Выявлено рыб'},
+    barmode: 'relative',
+    title: 'Статистика по всем окнам'
+  };
+
+  var dataIndicator = [
+       
+    {
+      type: "indicator",
+      mode: "number+delta",
+      value: sum,
+      title: {
+        text:
+          "Всего рыб<br><span style='font-size:0.8em;color:gray'>за период</span><br><span style='font-size:0.8em;color:gray'>прошли через рыбоучетное заграждение</span>"
+      },
+      delta: { reference: 1400000, relative: false },
+      domain: { x: [0.6, 1], y: [0, 1] }
+    }
+  ];
 
   return (
     <div className={styles.container}>
@@ -36,7 +85,9 @@ export default function Home() {
           })
         }
 
-        
+      <PlotComponent data={data}  layout={layout} />
+      <PlotComponent data={dataIndicator} />
+
       </main>
 
       <footer className={styles.footer}>

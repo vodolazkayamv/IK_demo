@@ -9,7 +9,7 @@ export default function PostTitle({ post }) {
               { post.title }
             </h1>
 
-            Author: <div className={styles.author}>  { post.author } </div>
+            
 
           </div>
 
