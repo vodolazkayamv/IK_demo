@@ -152,30 +152,49 @@ const Post = ( post ) => {
         y: [],
         type: 'bar'
       }
+      var observationsSum = 0
       if (observations) {
       observations.forEach((observation) => {
           var date = new Date(observation.date)
           var fishes = observation.fish
           observationsTrace.x.push(date)
           observationsTrace.y.push(fishes)
+          observationsSum += fishes
       })
     }
       var observationsData = [observationsTrace]
-
+      var observationsDataIndicator = [
+       
+        {
+          type: "indicator",
+          mode: "number",
+          value: observationsSum,
+          title: {
+            text:
+              "Всего рыб<br><span style='font-size:0.8em;color:gray'>за период</span><br><span style='font-size:0.8em;color:gray'>прошли через это окно</span>"
+          },
+          
+          domain: { x: [0.6, 1], y: [0, 1] }
+        }
+      ];
     return (
 
         <Article>
             <PostTitle post={post}> </PostTitle>
             
+            <h2>Демонстрационные данные:</h2>
+
             <PlotComponent data={data}  layout={layout} />
             <PlotComponent data={dataIndicator} />
 
-            <h1>Загружено:</h1>
-            <input type="file" name="image" onChange={uploadToClient} multiple="multiple" />
+            <h2>Загруженные данные:</h2>
 
 
             <PlotComponent data={observationsData}  layout={layout} />
+            <PlotComponent data={observationsDataIndicator} />
 
+
+            <input type="file" name="image" onChange={uploadToClient} multiple="multiple" />
         <button
           className="btn btn-primary"
           type="submit"
